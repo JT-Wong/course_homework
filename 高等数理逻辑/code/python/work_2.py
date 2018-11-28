@@ -36,9 +36,14 @@ for i in range(int(math.pow(2,len(logic_table_list)))):
 
         result = com_set.com_set_check(inputs)
         if result:
-            min_logic_list.append(ele_str)
-            print(inputs)
-            f.write(str(inputs) + '\n')
+            mark = False
+            for k in inputs:
+                if inputs[k][0] == '2':
+                    mark = True
+            if mark == True:
+                min_logic_list.append(ele_str)
+                print(inputs)
+                f.write(str(inputs) + '\n')
 
 
 f.close()
