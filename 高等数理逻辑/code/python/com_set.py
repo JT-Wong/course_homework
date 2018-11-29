@@ -126,7 +126,7 @@ def com_set_check(custom_logic_list):
 
     return result
 
-
+# print(L_check('0110'))
 
 
 # c_l_1 = {'or' : ['2', '0111'], 'and' : ['2', '0001']}
