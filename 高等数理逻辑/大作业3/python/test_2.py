@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from python import com_set
+import com_set
 import copy
 import math
 
@@ -110,3 +110,9 @@ print(T_1_list)
 print(L_list)
 print(M_list)
 print(S_list)
+
+print(len(T_0_list))
+print(len(T_1_list))
+print(len(L_list))
+print(len(M_list))
+print(len(S_list))
