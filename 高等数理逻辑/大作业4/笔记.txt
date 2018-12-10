@@ -1,0 +1,71 @@
+H(0) = 0
+H(n+1) = H(n) + 1/n
+H' = H(n)
+I' = N
+
+
+
+
+
+temp_n(0) = N
+G(0) = 0
+X(0) = 2
+M(n) = N
+
+X(n+1) = X(n) + 1
+smallest(M(n),n,M(n)*X(n) <= temp(n))
+
+temp_n(n+1) = if temp_n(n)%X(n) == 0 then M(n) else temp_n(n)
+G(n+1) = if temp_n(n)%X(n) == 0 then G(n)+X(n) else G(n)
+
+G' = if temp_n(N) == 1 then G(N) else G(N) + temp_n(N)
+
+
+
+temp_n
+i
+G
+
+
+temp_n(n+1) = temp_n(n)/i(n)
+G(n+1) = G(n)
+i(n) = i
+
+temp_n(0) = temp_n
+i(0) = i
+G(0) = G
+smallest(N,n,n*i(n)>=temp(n))
+temp_n'=temp(N)
+G'=G(N)
+i'=i(N)
+
+
+temp_n(n) = temp_n/i^n
+smallest(N,n,n*i >= temp_n/i^n)
+temp_n'=temp_n/i^N
+G'=G
+i'=i
+
+
+
+
+
+I(n+1) = I(n) + 1
+H(n+1) = H(n) + 1/I(n)
+E(n+1) = E(n)*e
+log(n+1) = log(n)
+N(n)*(I(n)+1) >= temp_n(n)/(I(n)+1)^N(n)
+m < N(n) -> m*I(n) < temp_n(n)/(I(n)+1)^m
+temp_n(n+1) = temp_n(n)/(I(n)+1)^N(n)
+G(n+1) = if temp_n(n)%(I(n)+1)==0 then G(n) + (I(n)+1) else G(n)
+log(0) = 1
+E(0) = 1
+H(0) = 0
+I(0) = 1
+G(0) = 0
+temp_n(0) = N
+n < M -> I(n) < N - 1
+I'= I(M)
+temp_n'= temp_n(M)
+G'= if temp_n(M)==1 then G(M) else G(M) + temp_n(M)
+H' = H(M) + E(H(M)) * log(H(M))
