@@ -108,8 +108,23 @@ def contain(com_l, sum_com_l):
 
     return False
 #
+logic_table_list = [['0','0'],['0','1'],['1','00'],['1','01'],['1','10'],['1','11'],
+                    ['2','0000'],['2', '0001'],['2', '0010'],['2', '0011'],
+                    ['2', '0100'],['2', '0101'],['2', '0110'],['2', '0111'],
+                    ['2', '1000'],['2', '1001'],['2', '1010'],['2', '1011'],
+                    ['2', '1100'],['2', '1101'],['2', '1110'],['2','1111']]
 i = 0
-f = open('res_3.txt', 'r')
+while i <= 255:
+    ele_str = bin(i)[2:]
+    while len(ele_str) < 8:
+        ele_str = '0' + ele_str
+    logic_table_list.append(['3', ele_str])
+    i += 1
+
+
+
+i = 0
+f = open('res_5.txt', 'r')
 sum_l = []
 lines = f.readlines()
 for line in lines:
@@ -120,8 +135,10 @@ for line in lines:
     if not contain(t, sum_l):
         sum_l.append(copy.deepcopy(t))
 
-f_w = open('res_4.txt', 'w+')
-for i in sum_l:
-    f_w.write(str(i) + '\n')
+f_w = open('res_6.txt', 'w+')
+for l in sum_l:
+    for i in l:
+        f_w.write(str(logic_table_list[int(i)]) + ' ')
+    f_w.write('\n')
 
 

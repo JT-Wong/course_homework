@@ -14,10 +14,10 @@ def combine_mark(mark_1, mark_2):
 
 
 logic_table_list = [['1','00'],['1','01'],['1','10'],['1','11'],
-                    ['2', '0001'],['2', '0010'],['2', '0011'],
+                    ['2','0000'],['2', '0001'],['2', '0010'],['2', '0011'],
                     ['2', '0100'],['2', '0101'],['2', '0110'],['2', '0111'],
                     ['2', '1000'],['2', '1001'],['2', '1010'],['2', '1011'],
-                    ['2', '1100'],['2', '1101'],['2', '1110']]
+                    ['2', '1100'],['2', '1101'],['2', '1110'],['2','1111']]
 
 # logic_table_list = [['1','00'],['1','11'],
 #                     ['2', '0001'],['2', '0010'],['2', '0011'],
@@ -28,8 +28,9 @@ logic_table_list = [['1','00'],['1','01'],['1','10'],['1','11'],
 
 # logic_table_list = [['1','00'],['1','11']]
 #
-i = 1
-while i < 255:
+
+i = 0
+while i <= 255:
     ele_str = bin(i)[2:]
     while len(ele_str) < 8:
         ele_str = '0' + ele_str
@@ -99,7 +100,7 @@ for i in M_list:
 for i in S_list:
     S_list[i] = logic_mark_num_list[i]
 
-
+print(logic_mark_list)
 T_0_list = sorted(T_0_list.items(),key = lambda x:x[1],reverse = True)
 T_1_list = sorted(T_1_list.items(),key = lambda x:x[1],reverse = True)
 L_list = sorted(L_list.items(),key = lambda x:x[1],reverse = True)

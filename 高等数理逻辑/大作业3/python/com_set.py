@@ -3,6 +3,12 @@ import math
 
 def T_0_check(last_true_table):
     result = True
+    if last_true_table == '0':
+        return True
+    if last_true_table == '1':
+        return False
+
+
     if int(last_true_table[0]) == 0:
         result = True
     else:
@@ -13,6 +19,13 @@ def T_0_check(last_true_table):
 
 def T_1_check(last_true_table):
     result = True
+    if last_true_table == '0':
+        return False
+    if last_true_table == '1':
+        return True
+
+
+
     if int(last_true_table[-1]) == 1:
         result = True
     else:
@@ -33,6 +46,12 @@ def cal_one_num(n):
 
 def L_check(last_true_table):
     result = True
+    if last_true_table == '0':
+        return False
+    if last_true_table == '1':
+        return False
+
+
     mark_1 = 0  # 1 : even  0 : odd
     mark_2 = 0  # 1 : odd  0 : even
     for i in range(len(last_true_table)):
@@ -55,6 +74,12 @@ def L_check(last_true_table):
 
 def M_check(ele_num, last_true_table):
     result = True
+
+    if last_true_table == '0':
+        return True
+    if last_true_table == '1':
+        return True
+
 
     for i in range(len(last_true_table)):
         table_num = int(last_true_table[i])
@@ -84,7 +109,12 @@ def M_check(ele_num, last_true_table):
 
 def S_check(last_true_table):
     result = True
-    
+    if last_true_table == '0':
+        return False
+    if last_true_table == '1':
+        return False
+
+
     l = len(last_true_table)
     for i in range(int(l/2)):
         if int(last_true_table[i]) == int(last_true_table[l-1-i]):
