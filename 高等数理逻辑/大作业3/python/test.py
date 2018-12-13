@@ -90,21 +90,34 @@
 # # print(b[:len(a)] == a)
 import copy
 def contain(com_l, sum_com_l):
-    if com_l in sum_com_l:
-        return True
+    # if com_l in sum_com_l:
+    #     return True
+
+    # i = 0
+    # while(i < len(sum_com_l)):
+    #     e = sum_com_l[i]
+    #     mark = False
+    #     for j in com_l:
+    #         if j not in e:
+    #             mark = True
+    #             break
+    #     if not mark:
+    #         del sum_com_l[i]
+    #     else:
+    #         i += 1
 
     i = 0
-    while(i < len(sum_com_l)):
+    while (i < len(sum_com_l)):
         e = sum_com_l[i]
         mark = False
-        for j in com_l:
-            if j not in e:
+        for j in e:
+            if j not in com_l:
                 mark = True
                 break
         if not mark:
-            del sum_com_l[i]
-        else:
-            i += 1
+            return True
+        i += 1
+
 
     return False
 #
@@ -121,10 +134,10 @@ while i <= 255:
     logic_table_list.append(['3', ele_str])
     i += 1
 
+temp_l = [[],[],[],[],[]]
 
 
-i = 0
-f = open('res_5.txt', 'r')
+f = open('res_7.txt', 'r')
 sum_l = []
 lines = f.readlines()
 for line in lines:
@@ -132,13 +145,36 @@ for line in lines:
         t = line.strip()[1:-1].replace(' ','').split(',')
     else:
         t = [line.strip()]
-    if not contain(t, sum_l):
-        sum_l.append(copy.deepcopy(t))
+    if len(t) == 1:
+        temp_l[0].append(t)
+    elif len(t) == 2:
+        temp_l[1].append(t)
+    elif len(t) == 3:
+        temp_l[2].append(t)
+    elif len(t) == 4:
+        temp_l[3].append(t)
+    elif len(t) == 5:
+        temp_l[4].append(t)
 
-f_w = open('res_6.txt', 'w+')
-for l in sum_l:
-    for i in l:
-        f_w.write(str(logic_table_list[int(i)]) + ' ')
-    f_w.write('\n')
+f_w = open('res_8_new.txt', 'w+')
+i = 0
+for l in temp_l:
+    for t in l :
+        if i % 10000 == 0:
+            print(i)
+        i += 1
+        if not contain(t, sum_l):
+            sum_l.append(copy.deepcopy(t))
+            for e in t:
+                f_w.write(str(logic_table_list[int(e)]) + ' ')
+            f_w.write('\n')
+
+f_w.close()
+
+# f_w = open('res_8_new.txt', 'w+')
+# for l in sum_l:
+#     for i in l:
+#         f_w.write(str(logic_table_list[int(i)]) + ' ')
+#     f_w.write('\n')
 
 
