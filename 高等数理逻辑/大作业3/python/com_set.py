@@ -35,28 +35,46 @@ def T_1_check(last_true_table):
 
 
 # 计算真值表某行元素中1的个数
-def cal_one_num(n):
+def cal_one_num(ele_num, n, d_l):
     res = 0
+    ele_str = bin(n)[2:]
+    while len(ele_str) < ele_num:
+        ele_str = '0' + ele_str
 
-    while(n != 0) :
-        n = n - math.pow(2, int(math.log2(n)))
-        res += 1
+    for i in range(len(ele_str)):
+        if i not in d_l and ele_str[i] == '1':
+            res += 1
+
 
     return res
 
-def L_check(last_true_table):
+def L_check(ele_num, last_true_table):
     result = True
     if last_true_table == '0':
         return False
     if last_true_table == '1':
         return False
 
+    d_l = []
+    for col in range(ele_num):
+        mark = True
+        for i in range(len(last_true_table)):
+            ele_str = bin(i)[2:]
+            while len(ele_str) < ele_num:
+                ele_str = '0' + ele_str
+            if ele_str[col] == '0':
+                ele_str = ele_str[:col] + '1' + ele_str[col + 1:]
+                new_i = int(ele_str, 2)
+                if last_true_table[i] != last_true_table[new_i]:
+                    mark = False
+        if mark:
+            d_l.append(col)
 
     mark_1 = 0  # 1 : even  0 : odd
     mark_2 = 0  # 1 : odd  0 : even
     for i in range(len(last_true_table)):
         table_num = int(last_true_table[i])
-        one_num = cal_one_num(i)
+        one_num = cal_one_num(ele_num, i, d_l)
         if table_num == 1 :
             if one_num % 2 == 0:
                 mark_1 += 1
@@ -143,7 +161,7 @@ def com_set_check(custom_logic_list):
         if not T_1_mark:
             T_1_mark = not T_1_check(last_true_table)
         if not L_mark:
-            L_mark = not L_check(last_true_table)
+            L_mark = not L_check(ele_num,last_true_table)
         if not M_mark:
             M_mark = not M_check(ele_num, last_true_table)
         if not S_mark:
@@ -168,8 +186,8 @@ def com_set_check(custom_logic_list):
 # c_l_7 = {'f' : ['2', '0111'], 'g' : ['2', '1001'], 'h' : ['1', '00']}
 # c_l_8 = {'f' : ['2', '0111'], 'g' : ['2', '0001'], 'h' : ['2', '1101'], 'i' : ['2', '1001']}
 
-# c_l_1 = {'f1' : ['0', '1'], 'f2' : ['1', '10']}
-# res = com_set_check(c_l_1)
+#c_l_1 = {'f1' : ['3', '11110000']}
+#res = com_set_check(c_l_1)
 # print(res)
 #
 # res = com_set_check(c_l_2)

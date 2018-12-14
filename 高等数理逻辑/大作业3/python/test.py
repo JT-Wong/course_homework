@@ -1,180 +1,57 @@
 # # -*- coding: utf-8 -*-
-# import math
-# # a = [1,2,3]
-# # a.pop()
-# # print(a)
-#
-#
-# #
-# # print(1 ^ 1)
-# # print(0 ^ 0)
-# # print(1 ^ 0)
-# #
-# # def Dec2Bin(dec):
-# #     result = ''
-# #
-# #     if dec != 0:
-# #         result = Dec2Bin(dec // 2)
-# #         return result + str(dec % 2)
-# #     else:
-# #         return result
-# #
-# #
-# # print(Dec2Bin(13))
-# #
-# # var_list = ['p', 'q', 'r']
-# # true_table = {}
-# # for var in var_list:
-# #     true_table[var] = []
-# #
-# # var_num = len(var_list)
-# # for i in range(int(math.pow(2, var_num))):
-# #     true_table_str = bin(i)[2:]
-# #     while len(true_table_str) < var_num:
-# #         true_table_str = '0' + true_table_str
-# #
-# #     for j in range(var_num):
-# #         true_table[var_list[j]].append(int(true_table_str[j]))
-# #
-# # for i in true_table:
-# #     print(true_table[i])
-# # a = 'p -> qpkdl -> q'
-# # temp = '('
-# # for i in range(len(a)):
-# #     if a[i] == '-' and a[i+1] == '>':
-# #         temp += ')' + a[i]
-# #     elif a[i] == '>' and a[i-1] == '-':
-# #         temp += a[i] + '('
-# #     else:
-# #         temp += a[i]
-# # temp += ')'
-# # print(temp)
-#
-# # ele_str = '0000'
-# # j = 0
-# # while j < len(ele_str):
-# #     if ele_str[j] == '1':
-# #         j += 1
-# #     else:
-# #         temp_ele_str = ele_str[:j] + '1' + ele_str[j+1:]
-# #         print(temp_ele_str)
-# #         print(int(temp_ele_str, 2))
-# #         j += 1
-#
-# import math
-# # print(int(math.pow(2,20)))
-#
-#
-# # logic_table_list = [['1','00'],['1','01'],['1','10'],['1','11'],
-# #                     ['2', '0001'],['2', '0010'],['2', '0011'],
-# #                     ['2', '0100'],['2', '0101'],['2', '0110'],['2', '0111'],
-# #                     ['2', '1000'],['2', '1001'],['2', '1010'],['2', '1011'],
-# #                     ['2', '1100'],['2', '1101'],['2', '1110']]
-# #
-# # i = 1
-# # while i < 255:
-# #     ele_str = bin(i)[2:]
-# #     while len(ele_str) < 8:
-# #         ele_str = '0' + ele_str
-# #     logic_table_list.append(['3', ele_str])
-# #     i += 1
-# #
-# # print(logic_table_list)
-#
-# # print(72*72*198*180*184)
-# import copy
-# #
-# # a =[2, 7]
-# # b = [2, 7, 13]
-# #
-# # print(b[:len(a)] == a)
-import copy
-def contain(com_l, sum_com_l):
-    # if com_l in sum_com_l:
-    #     return True
+import math
 
-    # i = 0
-    # while(i < len(sum_com_l)):
-    #     e = sum_com_l[i]
-    #     mark = False
-    #     for j in com_l:
-    #         if j not in e:
-    #             mark = True
-    #             break
-    #     if not mark:
-    #         del sum_com_l[i]
-    #     else:
-    #         i += 1
+# f1 = open('res_f.txt', 'r')
+# f2 = open('res_f_2.txt', 'w+')
+#
+# lines = f1.readlines()
+# for line in lines:
+#     str_l = line.strip().split(';')
+#     r = ''
+#     for s in str_l:
+#         if s.strip() == '':
+#             continue
+#         n,t = s.replace("'",'').replace('[','').replace(']','').replace(' ','').split(',')
+#         if n == '0':
+#             r += 'A'
+#         elif n == '1':
+#             r += 'B'
+#         elif n == '2':
+#             r += 'C'
+#         elif n == '3':
+#             r += 'D'
+#         r += str(int(t, 2)) + '\t'
+#     f2.write(r + '\n')
 
-    i = 0
-    while (i < len(sum_com_l)):
-        e = sum_com_l[i]
+
+
+
+
+def contain(e_1, l_2):
+    for e_2 in l_2:
         mark = False
-        for j in e:
-            if j not in com_l:
+        for j in e_2:
+            if j not in e_1:
                 mark = True
                 break
-        if not mark:
+        if (not mark) and len(e_1) == len(e_2):
             return True
-        i += 1
-
-
     return False
-#
-logic_table_list = [['0','0'],['0','1'],['1','00'],['1','01'],['1','10'],['1','11'],
-                    ['2','0000'],['2', '0001'],['2', '0010'],['2', '0011'],
-                    ['2', '0100'],['2', '0101'],['2', '0110'],['2', '0111'],
-                    ['2', '1000'],['2', '1001'],['2', '1010'],['2', '1011'],
-                    ['2', '1100'],['2', '1101'],['2', '1110'],['2','1111']]
-i = 0
-while i <= 255:
-    ele_str = bin(i)[2:]
-    while len(ele_str) < 8:
-        ele_str = '0' + ele_str
-    logic_table_list.append(['3', ele_str])
-    i += 1
-
-temp_l = [[],[],[],[],[]]
 
 
-f = open('res_7.txt', 'r')
-sum_l = []
-lines = f.readlines()
+f1 = open('res_f_2.txt', 'r')
+f2 = open('result.txt', 'r')
+
+l_1 = []
+lines = f1.readlines()
 for line in lines:
-    if '[' in line:
-        t = line.strip()[1:-1].replace(' ','').split(',')
-    else:
-        t = [line.strip()]
-    if len(t) == 1:
-        temp_l[0].append(t)
-    elif len(t) == 2:
-        temp_l[1].append(t)
-    elif len(t) == 3:
-        temp_l[2].append(t)
-    elif len(t) == 4:
-        temp_l[3].append(t)
-    elif len(t) == 5:
-        temp_l[4].append(t)
+    l_1.append(line.strip().split('\t'))
 
-f_w = open('res_8_new.txt', 'w+')
-i = 0
-for l in temp_l:
-    for t in l :
-        if i % 10000 == 0:
-            print(i)
-        i += 1
-        if not contain(t, sum_l):
-            sum_l.append(copy.deepcopy(t))
-            for e in t:
-                f_w.write(str(logic_table_list[int(e)]) + ' ')
-            f_w.write('\n')
+l_2 = []
+lines = f2.readlines()
+for line in lines:
+    l_2.append(line.strip().split('\t'))
 
-f_w.close()
-
-# f_w = open('res_8_new.txt', 'w+')
-# for l in sum_l:
-#     for i in l:
-#         f_w.write(str(logic_table_list[int(i)]) + ' ')
-#     f_w.write('\n')
-
-
+for e_1 in l_1:
+    if not contain(e_1, l_2):
+        print(e_1)

@@ -2,7 +2,7 @@
 import com_set
 import copy
 import math
-f = open('res_9.txt', 'w+')
+f = open('res_3.txt', 'w+')
 
 # 寻找能够填补mark_1零位的mark_2
 def combine_mark(mark_1, mark_2):
@@ -14,23 +14,19 @@ def combine_mark(mark_1, mark_2):
 
 
 
-# logic_table_list = [['0','0'],['0','1'],['1','00'],['1','01'],['1','10'],['1','11'],
-#                     ['2','0000'],['2', '0001'],['2', '0010'],['2', '0011'],
-#                     ['2', '0100'],['2', '0101'],['2', '0110'],['2', '0111'],
-#                     ['2', '1000'],['2', '1001'],['2', '1010'],['2', '1011'],
-#                     ['2', '1100'],['2', '1101'],['2', '1110'],['2','1111']]
-
-logic_table_list = [['1','00'],['1','01'],['1','10'],['1','11'],
-                    ['2', '0001'],['2', '0010'],['2', '0011'],
+logic_table_list = [['0','0'],['0','1'],['1','00'],['1','01'],['1','10'],['1','11'],
+                    ['2','0000'],['2', '0001'],['2', '0010'],['2', '0011'],
                     ['2', '0100'],['2', '0101'],['2', '0110'],['2', '0111'],
                     ['2', '1000'],['2', '1001'],['2', '1010'],['2', '1011'],
-                    ['2', '1100'],['2', '1101'],['2', '1110']]
+                    ['2', '1100'],['2', '1101'],['2', '1110'],['2','1111']]
+
+
 
 
 # logic_table_list = [['1','00'],['1','11']]
 #
-i = 1
-while i < 255:
+i = 0
+while i <= 255:
     ele_str = bin(i)[2:]
     while len(ele_str) < 8:
         ele_str = '0' + ele_str
@@ -47,11 +43,16 @@ logic_mark_list = {}
 logic_mark_num_list = {}
 
 for i in range(len(logic_table_list)):
-    T_0_mark = not com_set.T_0_check(logic_table_list[i][1])
-    T_1_mark = not com_set.T_1_check(logic_table_list[i][1])
-    L_mark = not com_set.L_check(logic_table_list[i][1])
-    M_mark = not com_set.M_check(int(logic_table_list[i][0]), logic_table_list[i][1])
-    S_mark = not com_set.S_check(logic_table_list[i][1])
+    if '1' not in logic_table_list[i][1] :
+        T_0_mark,T_1_mark,L_mark,M_mark,S_mark = False,True,False,False,True
+    elif '0' not in logic_table_list[i][1] :
+        T_0_mark,T_1_mark,L_mark,M_mark,S_mark = True,False,False,False,True
+    else:
+        T_0_mark = not com_set.T_0_check(logic_table_list[i][1])
+        T_1_mark = not com_set.T_1_check(logic_table_list[i][1])
+        L_mark = not com_set.L_check(int(logic_table_list[i][0]), logic_table_list[i][1])
+        M_mark = not com_set.M_check(int(logic_table_list[i][0]), logic_table_list[i][1])
+        S_mark = not com_set.S_check(logic_table_list[i][1])
 
     if T_0_mark and T_1_mark and L_mark and M_mark and S_mark:
         f.write(str(i) + '\n')
@@ -114,28 +115,6 @@ S_list = sorted(S_list.items(),key = lambda x:x[1],reverse = True)
 count = 0
 sum_com_l = []
 
-def contain(com_l, sum_com_l):
-    mark = False
-    for i in com_l:
-        if i > 3:
-            mark = True
-            break
-    if not mark:
-        return True
-
-    for e in sum_com_l:
-        mark = False
-        if e == com_l:
-            return True
-        else:
-            for i in e:
-                if i not in com_l:
-                    mark = True
-                    break
-            if not mark:
-                return True
-
-    return False
 
 
 for T_0_e in T_0_list:

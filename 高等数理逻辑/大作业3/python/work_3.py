@@ -2,7 +2,7 @@
 import com_set
 import copy
 import math
-f = open('res_5.txt', 'w+')
+f = open('res_3.txt', 'w+')
 
 # 寻找能够填补mark_1零位的mark_2
 def combine_mark(mark_1, mark_2):
@@ -47,11 +47,16 @@ logic_mark_list = {}
 logic_mark_num_list = {}
 
 for i in range(len(logic_table_list)):
-    T_0_mark = not com_set.T_0_check(logic_table_list[i][1])
-    T_1_mark = not com_set.T_1_check(logic_table_list[i][1])
-    L_mark = not com_set.L_check(logic_table_list[i][1])
-    M_mark = not com_set.M_check(int(logic_table_list[i][0]), logic_table_list[i][1])
-    S_mark = not com_set.S_check(logic_table_list[i][1])
+    if int(logic_table_list[i][1], 2) == 0 :
+        T_0_mark,T_1_mark,L_mark,M_mark,S_mark = False,True,False,False,True
+    elif int(logic_table_list[i][1], 2) == math.pow(2,int(logic_table_list[i][0]))-1 or logic_table_list[i][1] == '1' :
+        T_0_mark,T_1_mark,L_mark,M_mark,S_mark = True,False,False,False,True
+    else:
+        T_0_mark = not com_set.T_0_check(logic_table_list[i][1])
+        T_1_mark = not com_set.T_1_check(logic_table_list[i][1])
+        L_mark = not com_set.L_check(logic_table_list[i][1])
+        M_mark = not com_set.M_check(int(logic_table_list[i][0]), logic_table_list[i][1])
+        S_mark = not com_set.S_check(logic_table_list[i][1])
 
     if T_0_mark and T_1_mark and L_mark and M_mark and S_mark:
         f.write(str(i) + '\n')
