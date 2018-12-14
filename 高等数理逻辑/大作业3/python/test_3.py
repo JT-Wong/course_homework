@@ -33,7 +33,7 @@ while i <= 255:
 temp_l = [[],[],[],[],[]]
 
 
-f = open('res_3.txt', 'r')
+f = open('res_2.txt', 'r')
 sum_l = []
 lines = f.readlines()
 i = 0
@@ -67,7 +67,7 @@ print(len(temp_l[2]))
 print(len(temp_l[3]))
 print(len(temp_l[4]))
 
-f_w = open('res_f.txt', 'w+')
+f_w = open('res_2_f.txt', 'w+')
 i = 0
 for l in temp_l:
     for t in l :

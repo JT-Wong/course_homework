@@ -2,7 +2,7 @@
 import com_set
 import copy
 import math
-f = open('res_3.txt', 'w+')
+f = open('res_2.txt', 'w+')
 
 # 寻找能够填补mark_1零位的mark_2
 def combine_mark(mark_1, mark_2):
@@ -25,13 +25,13 @@ logic_table_list = [['0','0'],['0','1'],['1','00'],['1','01'],['1','10'],['1','1
 
 # logic_table_list = [['1','00'],['1','11']]
 #
-i = 0
-while i <= 255:
-    ele_str = bin(i)[2:]
-    while len(ele_str) < 8:
-        ele_str = '0' + ele_str
-    logic_table_list.append(['3', ele_str])
-    i += 1
+# i = 0
+# while i <= 255:
+#     ele_str = bin(i)[2:]
+#     while len(ele_str) < 8:
+#         ele_str = '0' + ele_str
+#     logic_table_list.append(['3', ele_str])
+#     i += 1
 
 T_0_list = {}
 T_1_list = {}
