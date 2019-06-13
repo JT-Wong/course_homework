@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<map name="总体架构" document_type="BLUMIND" editor_version="1.3.1.0">
+  <!--Create by Blumind, you can download it free from http://www.hyfree.net/download-->
+  <info />
+  <layout>MIND_MAP</layout>
+  <attributes>
+    <item name="editor_show_sidebar">True</item>
+  </attributes>
+  <style>
+    <back_color>White</back_color>
+    <fore_color>Black</fore_color>
+    <line_color>LightSlateGray</line_color>
+    <border_color>SlateGray</border_color>
+    <node_back_color>LightGray</node_back_color>
+    <node_fore_color>Black</node_fore_color>
+    <select_color>RoyalBlue</select_color>
+    <hover_color>MediumSlateBlue</hover_color>
+    <link_line_color>Green</link_line_color>
+  </style>
+  <nodes>
+    <node text="hdfs">
+      <style>
+        <back_color>Silver</back_color>
+        <fore_color>Black</fore_color>
+        <border_color>Black</border_color>
+        <shape>1</shape>
+        <padding>12</padding>
+      </style>
+      <nodes>
+        <node text="通讯及协议模块">
+          <style>
+            <shape>1</shape>
+          </style>
+          <nodes>
+            <node text="hdfs.protocol" folded="True">
+              <nodes>
+                <node text="Block.java" />
+                <node text="BlockListAsLongs.java" />
+                <node text="BlockLocalPathInfo.java" />
+                <node text="ClientDatanodeProtocol" />
+                <node text="ClientProtocol.java" />
+                <node text="DatanodeID.java" />
+                <node text="DatanodeInfo.java" />
+                <node text="DataTransferProtocol.java" />
+                <node text="DirectoryListing.java" />
+                <node text="DSQuotaExceededException.java" />
+                <node text="HdfsConstants.java" />
+                <node text="HdfsFileStatus.java" />
+              </nodes>
+            </node>
+            <node text="hdfs.protocolPB" folded="True">
+              <nodes>
+                <node text="ClientDatanodeProtocolTranslatorPB.java" />
+                <node text="ClientNamenodeProtocolTranslatorPB.java" />
+                <node text="PBHelperClient.java" />
+                <node text="ReconfigurationProtocolTranslatorPB.java" />
+                <node text="ReconfigurationProtocolUtils.java" />
+                <node text="ClientDatanodeProtocolServerSideTranslatorPB.java" />
+                <node text="ClientNamenodeProtocolServerSideTranslatorPB.java" />
+                <node text="DatanodeProtocolClientSideTranslatorPB.java" />
+                <node text="DatanodeProtocolServerSideTranslatorPB.java" />
+                <node text="NamenodeProtocolServerSideTranslatorPB.java" />
+                <node text="NamenodeProtocolTranslatorPB.java" />
+                <node text="PBHelper.java" />
+              </nodes>
+            </node>
+            <node text="hdfs.server.protocol" folded="True">
+              <nodes>
+                <node text="BalancerBandwidthCommand.java" />
+                <node text="BlockCommand.java" />
+                <node text="DatanodeCommand.java" />
+                <node text="DatanodeLifelineProtocol.java" />
+                <node text="DatanodeProtocol.java" />
+                <node text="DatanodeRegistration.java" />
+                <node text="JournalProtocol.java" />
+                <node text="NamenodeProtocol.java" />
+                <node text="NamenodeProtocols.java" />
+                <node text="NamenodeRegistration.java" />
+                <node text="NamespaceInfo.java" />
+                <node text="NNHAStatusHeartbeat.java" />
+              </nodes>
+            </node>
+            <node text="hdfs.qjournal.protocol" folded="True">
+              <nodes>
+                <node text="InterQJournalProtocol.java" />
+                <node text="JournalNotFormattedException.java" />
+                <node text="JournalOutOfSyncException.java" />
+                <node text="QJournalProtocol.java" />
+                <node text="RequestInfo.java" />
+              </nodes>
+            </node>
+            <node text="hdfs.qjournal.protocolPB" folded="True">
+              <nodes>
+                <node text="InterQJournalProtocolPB.java" />
+                <node text="InterQJournalProtocolServerSideTranslatorPB.java" />
+                <node text="InterQJournalProtocolTranslatorPB.java" />
+                <node text="QJournalProtocolPB.java" />
+                <node text="QJournalProtocolServerSideTranslatorPB.java" />
+                <node text="QJournalProtocolTranslatorPB.java" />
+              </nodes>
+            </node>
+          </nodes>
+        </node>
+        <node text="核心模块">
+          <style>
+            <shape>1</shape>
+          </style>
+          <nodes>
+            <node text="DataNode" folded="True">
+              <style>
+                <shape>1</shape>
+              </style>
+              <nodes>
+                <node text="BlockPoolManager.java" />
+                <node text="BlockReceiver.java" />
+                <node text="BlockRecoveryWorker.java" />
+                <node text="BPServiceActor.java" />
+                <node text="DataNode.java" />
+                <node text="DataStorage.java" />
+                <node text="DirectoryScanner.java" />
+                <node text="DiskBalancer.java" />
+                <node text="FileIoProvider.java" />
+                <node text="SecureDataNodeStarter.java" />
+                <node text="ShortCircuitRegistry.java" />
+                <node text="StorageLocation.java" />
+              </nodes>
+            </node>
+            <node text="NameNode" folded="True">
+              <style>
+                <shape>1</shape>
+              </style>
+              <nodes>
+                <node text="AclStorage.java" />
+                <node text="AclTransformation.java" />
+                <node text="INode.java" />
+                <node text="INodeDirectory.java" />
+                <node text="INodeFile.java" />
+                <node text="FileUnderConstructionFeature.java" />
+                <node text="FSEditLog.java" />
+                <node text="FSImage.java" />
+                <node text="FSDirectory.java" />
+                <node text="NameNode.java" />
+                <node text="NameNodeRpcServer.java" />
+                <node text="SecondaryNameNode.java" />
+              </nodes>
+            </node>
+            <node text="hdfs.server.blockmanagement" folded="True">
+              <nodes>
+                <node text="BlockIdManager.java" />
+                <node text="BlockInfo.java" />
+                <node text="BlockInfoStriped.java" />
+                <node text="BlockManager.java" />
+                <node text="BlockManagerSafeMode.java" />
+                <node text="BlockPlacementPolicy.java" />
+                <node text="BlockPlacementPolicyDefault.java" />
+                <node text="BlockPlacementStatus.java" />
+                <node text="BlockReportLeaseManager.java" />
+                <node text="BlocksMap.java" />
+                <node text="BlockUnderConstructionFeature.java" />
+                <node text="CacheReplicationMonitor.java" />
+              </nodes>
+            </node>
+          </nodes>
+        </node>
+        <node text="client模块">
+          <style>
+            <shape>1</shape>
+          </style>
+          <nodes>
+            <node text="DistributedFileSystem">
+              <style>
+                <shape>1</shape>
+              </style>
+            </node>
+            <node text="FsShell">
+              <style>
+                <shape>1</shape>
+              </style>
+            </node>
+            <node text="DFSAdmin">
+              <style>
+                <shape>1</shape>
+              </style>
+            </node>
+          </nodes>
+        </node>
+        <node text="工具及安全模块">
+          <style>
+            <shape>1</shape>
+          </style>
+          <nodes>
+            <node text="hdfs.util" folded="True">
+              <nodes>
+                <node text="AtomicFileOutputStream.java" />
+                <node text="BestEffortLongFile.java" />
+                <node text="DataTransferThrottler.java" />
+                <node text="Diff.java" />
+                <node text="EnumCounters.java" />
+                <node text="EnumDoubles.java" />
+                <node text="FoldedTreeSet.java" />
+                <node text="LightWeightHashSet.java" />
+                <node text="LightWeightLinkedSet.java" />
+                <node text="MD5FileUtils.java" />
+                <node text="ReadOnlyList.java" />
+                <node text="XMLUtils.java" />
+              </nodes>
+            </node>
+            <node text="hdfs.security.token.block" folded="True">
+              <nodes>
+                <node text="BlockKey.java" />
+                <node text="BlockPoolTokenSecretManager.java" />
+                <node text="BlockTokenSecretManager.java" />
+                <node text="ExportedBlockKeys.java" />
+                <node text="BlockTokenIdentifier.java" />
+                <node text="BlockTokenSelector.java" />
+                <node text="DataEncryptionKey.java" />
+                <node text="InvalidBlockTokenException.java" />
+              </nodes>
+            </node>
+            <node text="hdfs.security.token.delegation" folded="True">
+              <nodes>
+                <node text="DelegationTokenSecretManager.java" />
+                <node text="DelegationTokenIdentifier.java" />
+                <node text="DelegationTokenSelector.java" />
+              </nodes>
+            </node>
+            <node text="hdfs.tools" folded="True">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="AdminHelper.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="CacheAdmin.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="CryptoAdmin.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="DebugAdmin.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="DelegationTokenFetcher.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="DFSAdmin.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="DFSck.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="DFSHAAdmin.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="DFSZKFailoverController.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="DiskBalancerCLI.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="ECAdmin.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="GetConf.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="hdfs.web" folded="True">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="AccessTokenProvider.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="BlockSizeParam.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="ConfCredentialBasedAccessTokenProvider.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="DestinationParam.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="Param.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="StringParam.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="UnmaskedPermissionParam.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="XAttrEncodingParam.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="JsonUtilClient..java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="TokenAspect.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="URLConnectionFactory.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="WebHdfsFileSystem.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="hdfs.server.namenode.web.resources">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+            <node text="hdfs.server.datanode.web.webhdfs" folded="True">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="DataNodeUGIProvider.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="ExceptionHandler.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="HdfsWriter.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="ParameterParser.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="WebHdfsHandler.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="DatanodeHttpServer.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="RestCsrfPreventionFilterHandler.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="SimpleHttpProxyHandler.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="URLDispatcher.java">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+          </nodes>
+        </node>
+      </nodes>
+    </node>
+  </nodes>
+</map>
